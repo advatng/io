@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADVAT NG - Advertising Agency</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #222;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      margin: 10px;
+      text-decoration: none;
+    }
+    section {
+      padding: 40px 20px;
+    }
+    .hero {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      height: 400px;
+    }
+    .slider {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 1s ease-in-out;
+    }
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .slider-controls a {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .slider-controls a:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ADVAT NG</h1>
+    <p>Your Gateway to Effective Advertising in Nigeria</p>
+  </header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="slider">
+      <img src="image1.jpg" alt="Advertising Image 1" />
+      <img src="image2.jpg" alt="Advertising Image 2" />
+      <img src="image3.jpg" alt="Advertising Image 3" />
+    </div>
+    <div class="slider-controls">
+      <a href="#" id="prev">&#10094;</a>
+      <a href="#" id="next">&#10095;</a>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <ul class="service-list">
+      <li><a href="#digital">Digital Marketing Services</a></li>
+      <li><a href="#outdoor">Outdoor Advertising</a></li>
+      <li><a href="#brand">Brand Management</a></li>
+      <li><a href="#content">Content Creation & Video Production</a></li>
+      <li><a href="#web">Web Development & Management</a></li>
+      <li><a href="#talent">Talent Management & Influencer Marketing</a></li>
+      <li><a href="#creative">Creative Agency Services</a></li>
+      <li><a href="#training">Training & Capacity Building</a></li>
+      <li><a href="#media">TV & Radio Advertising</a></li>
+      <li><a href="#affiliate">Affiliate Marketing</a></li>
+      <li><a href="#sponsorship">Sponsorship & Endorsements</a></li>
+      <li><a href="#comms">Corporate Communications</a></li>
+      <li><a href="#printing">Printing & Publishing</a></li>
+      <li><a href="#social">Social Media Management</a></li>
+      <li><a href="#pr">Public Relations</a></li>
+      <li>All other advertising, marketing, media, and communication services</li>
+    </ul>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h2>Testimonials</h2>
+    <blockquote>
+      <p>“ADVAT NG helped take our campaign to the next level. Their strategic approach and creative execution were top-notch!”</p>
+      <cite>– Client A</cite>
+    </blockquote>
+    <blockquote>
+      <p>“Their billboard and LED screen placements gave us unmatched visibility. We’ll definitely work with them again.”</p>
+      <cite>– Client B</cite>
+    </blockquote>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Phone/WhatsApp:</strong> +2347065546554</p>
+    <p><strong>Website:</strong> <a href="https://www.advat.ng" target="_blank">www.advat.ng</a></p>
+    <p><strong>Follow Us:</strong></p>
+    <div>
+      <a href="https://www.facebook.com/advat.ng" target="_blank">Facebook</a> |
+      <a href="https://www.instagram.com/advat.ng" target="_blank">Instagram</a> |
+      <a href="https://www.tiktok.com/@advat.ng" target="_blank">TikTok</a> |
+      <a href="https://twitter.com/advatng" target="_blank">Twitter</a> |
+      <a href="https://www.youtube.com/c/advatng" target="_blank">YouTube</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ADVAT NG. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slider img');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      if (index < 0) {
+        currentIndex = totalSlides - 1;
+      } else if (index >= totalSlides) {
+        currentIndex = 0;
+      }
+      document.querySelector('.slider').style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIndex--;
+      showSlide(currentIndex);
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentIndex++;
+      showSlide(currentIndex);
+    });
+
+    // Auto-slide every 5 seconds
+    setInterval(() => {
+      currentIndex++;
+      showSlide(currentIndex);
+    }, 5000);
+  </script>
+</body>
+</html>
